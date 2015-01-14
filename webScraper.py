@@ -12,7 +12,7 @@ browser.set_handle_robots(True)
 browser.addheaders = [('user-agent', '   Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.3) Gecko/20100423 Ubuntu/10.04 (lucid) Firefox/3.6.3')]
 
 # Get requested url of page with wallpapers
-url = 'http://alpha.wallhaven.cc/search?q=calvin%20and%20hobbes&categories=111&purity=110&sorting=date_added&order=desc'
+url = '' # Enter wallhaven.cc url here
 
 # Create string of html code of requested webpage
 html = browser.open(url).read()
@@ -63,6 +63,6 @@ for pic in images:
     count += 1
     print("Image " + str(count))
     # Retrieve the current pic and store in specified local location
-    urllib.urlretrieve(pic, '/Users/MichaelOnjack/Desktop/Wallpapers/img_' + str(count) + '.jpg')
+    urllib.urlretrieve(pic, 'directory path' + str(count) + '.jpg')
     
 print('Download complete.')
