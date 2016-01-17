@@ -16,7 +16,6 @@ def get_wallpapers(url,directory):
     # Create string of html code of requested webpage
     html = browser.open(url).read()
     browser.close()
-    
     # Array to hold image file names+extensions
     images = []
 
@@ -26,11 +25,10 @@ def get_wallpapers(url,directory):
 
     #End of webpage html
     endIndex = len(html)
-
+        
     # Initialize the current index to position in html near the image files
-    currentIndex = html.find('<figure class="thumb purity')
+    currentIndex = html.find('figure  id="thumb-')
     while currentIndex != -1:
-
         # Create substring of html to hold only relevant code (image files)
         html = html[currentIndex:endIndex]
         # Beginning of unique image extension
@@ -47,7 +45,7 @@ def get_wallpapers(url,directory):
         # Add the current image to the array of images
         images.append(currentImage)
         # Set currentIndex for the next loop iteration
-        currentIndex = html.find('<figure class="thumb purity')
+        currentIndex = html.find('figure  id="thumb-')
 
     # Print image file names to verify correct parsing
     for i in range(len(images)):
@@ -76,5 +74,5 @@ if __name__ == "__main__":
     user_search = urllib.quote(user_search)
     url = base_url + user_search
     print url
-    
     get_wallpapers(url,user_direc)
+
